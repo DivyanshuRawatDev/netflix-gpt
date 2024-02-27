@@ -21,7 +21,12 @@ const Login = () => {
       password.current.value,
       name.current ? name.current.value : null
     );
+
     setErrorMessage(message);
+
+    if (message == null) {
+      //SignIn  and SignUp
+    }
 
     //SignIn and SignUp
   };
