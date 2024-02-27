@@ -11,11 +11,11 @@ export const checkValidateData = (email, password, name) => {
       /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/.test(
         name
       );
-    if (!isValidName) return "Name is not valid";
+    if (!isValidName) return "Name is not valid (ex: Divyanshu Rawat)";
   }
 
   if (!isEmailVaild) return "Email ID is not valid";
-  if (!isPasswordValid) return "Password is not vaild";
+  if (!isPasswordValid) return "Password is not vaild 'Aa#1' ";
 
   return null;
 };
