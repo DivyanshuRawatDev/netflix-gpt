@@ -8,9 +8,12 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -48,10 +51,14 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: user.current.value,
+            displayName: name.current.value,
           })
             .then(() => {
               // Profile updated!
+              const { uid, email, displayName } = auth.currentUser;
+              console.log(user);
+              dispatch(addUser({ uid, email, displayName }));
+
               navigate("/browse");
             })
             .catch((error) => {
@@ -62,7 +69,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + " " + errorMessage);
+          setErrorMessage("SignUP" + errorCode + " " + errorMessage);
         });
     } else {
       // SignIn Logic
