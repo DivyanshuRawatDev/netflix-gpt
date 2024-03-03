@@ -29,7 +29,6 @@ const Header = () => {
       if (user) {
         // User is signed in
         const { uid, email, displayName } = user;
-        console.log(user);
         dispatch(addUser({ uid, email, displayName }));
         navigate("/browse");
       } else {

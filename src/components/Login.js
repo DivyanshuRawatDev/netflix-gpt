@@ -7,13 +7,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BACKGROUND_IMAGE } from "../utils/constants";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -57,13 +55,12 @@ const Login = () => {
             .then(() => {
               // Profile updated!
               const { uid, email, displayName } = auth.currentUser;
-              console.log(user);
+
               dispatch(addUser({ uid, email, displayName }));
             })
             .catch((error) => {
               setErrorMessage(error);
             });
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -80,7 +77,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
