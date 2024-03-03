@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BACKGROUND_IMAGE } from "../utils/constants";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -58,8 +59,6 @@ const Login = () => {
               const { uid, email, displayName } = auth.currentUser;
               console.log(user);
               dispatch(addUser({ uid, email, displayName }));
-
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error);
@@ -82,7 +81,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -96,10 +94,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://nextflix-azure.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2Fassets%2FloginBg.fbb89a9bb4b8a97b24555364c3cbca41.jpg&w=1920&q=75"
-          alt="background"
-        />
+        <img src={BACKGROUND_IMAGE} alt="background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
