@@ -1,4 +1,3 @@
-
 # Netflix GPT
 
 Experience seamless, responsive Netflix-like streaming with our GPT clone. Enjoy flawless browsing on both mobile and desktop devices. Dive into a world of entertainment with personalized recommendations and intuitive interface design. Stream your favorite shows and movies effortlessly with our cutting-edge platform
@@ -11,11 +10,11 @@ It works great on both your phone and your laptop, adapting to whatever device y
 We've added a smart feature that recommends shows and movies using GPT AI (just remember, if it's not working, it might mean our free token has expired).
 You'll always see the newest movies because we're using the TMDB API to keep things fresh.
 
+## Sign Up / Sign In Page
 
-## Sign Up /  Sign In Page
 ![App Screenshot](https://i.ibb.co/PgR5D5N/Screenshot-1219.png)
 
-## Home Page 
+## Home Page
 
 ![App Screenshot](https://i.ibb.co/9s0KX2V/screencapture-netflix-gpt-gold-vercel-app-browse-2024-03-05-19-33-33.png)
 
