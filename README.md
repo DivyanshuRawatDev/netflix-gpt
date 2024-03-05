@@ -16,7 +16,7 @@ You'll always see the newest movies because we're using the TMDB API to keep thi
 
 ## Mobile Screen
 
-![App Screenshot](https://i.ibb.co/1X3xHZH/mobile.png)
+![App Screenshot](https://i.ibb.co/3vRw5hb/home.jpg)
 
 ## Dekstop Screen
 
