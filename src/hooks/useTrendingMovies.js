@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addTrendingMovies } from "../utils/moviesSlice";
 import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 
 const useTrendingMovies = () => {
   const dispatch = useDispatch();
@@ -20,6 +19,7 @@ const useTrendingMovies = () => {
 
   useEffect(() => {
     !trendingMovies && getTrendingMovies();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 
