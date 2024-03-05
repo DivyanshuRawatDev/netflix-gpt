@@ -14,10 +14,10 @@ You'll always see the newest movies because we're using the TMDB API to keep thi
 
 ![App Screenshot](https://i.ibb.co/PgR5D5N/Screenshot-1219.png)
 
-## Mobile Screen
+## Dekstop Screen
 
 ![App Screenshot](https://i.ibb.co/3vRw5hb/home.jpg)
 
-## Dekstop Screen
+## Mobile Screen
 
-![App Screenshot](https://i.ibb.co/YtmjNY7/home.png)
+![App Screenshot](https://i.ibb.co/1X3xHZH/mobile.png)
