@@ -57,32 +57,51 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row justify-between">
-      <img className="w-44 mx-auto md:mx-0" src={NETFLIX_LOGO} alt="logo" />
+    <div className=" absolute px-4 md:px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex  justify-between items-center ">
+      <div className="flex">
+        <img
+          className={`w-20 h-10 md:h-full md:w-44  mx-auto ${
+            isGPT ? "mb-[50%] md:mb-0" : "mb-1"
+          }`}
+          src={NETFLIX_LOGO}
+          alt="logo"
+        />
+      </div>
       {user && (
-        <div className="flex m-2 gap-2 items-center">
+        <div className="flex flex-col-reverse md:flex-row mb-2 items-center ">
           {isGPT && (
-            <select
-              className="p-2 bg-gray-900 text-white"
-              onChange={handleLanguageChange}
-            >
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
+            <div className="flex ml-auto">
+              <select
+                className="p-2 bg-gray-900 text-white "
+                onChange={handleLanguageChange}
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           )}
-          <button
-            className="py-2 px-4 my-2 bg-red-700 m-2 text-white rounded-sm"
-            onClick={handleGptSearch}
-          >
-            {isGPT ? "Homepage" : "GPT Search"}
-          </button>
-          <img className="w-10 h-10" src={SMILE_LOGO} alt="userIcon" />
-          <button onClick={handleSignOut} className="text-white font-bold">
-            (SignOut)
-          </button>
+          <div className="flex m-2 gap-2 items-center mt-2 md:mt-0">
+            <button
+              className="md:py-2 text-sm md:text-lg  px-4 my-2  bg-red-700 m-2 text-white rounded-sm"
+              onClick={handleGptSearch}
+            >
+              {isGPT ? "Home" : "GPT"}
+            </button>
+            <img
+              className="w-5 h-5 md:w-10 md:h-10 "
+              src={SMILE_LOGO}
+              alt="userIcon"
+            />
+            <button
+              onClick={handleSignOut}
+              className="text-white font-bold text-sm md:text-lg"
+            >
+              Logout
+            </button>
+          </div>
         </div>
       )}
     </div>
