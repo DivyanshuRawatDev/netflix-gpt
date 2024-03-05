@@ -16,7 +16,7 @@ You'll always see the newest movies because we're using the TMDB API to keep thi
 
 ## Home Page
 
-![App Screenshot](https://i.ibb.co/9s0KX2V/screencapture-netflix-gpt-gold-vercel-app-browse-2024-03-05-19-33-33.png)
+![App Screenshot](https://i.ibb.co/YtmjNY7/home.png)
 
 ## Mobile Screen
 
