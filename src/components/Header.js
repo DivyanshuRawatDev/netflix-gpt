@@ -11,11 +11,12 @@ import {
   SUPPORTED_LANGUAGES,
 } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [isGPT, setIsGPT] = useState(true);
+  const [isGPT, setIsGPT] = useState(false);
 
   const user = useSelector((store) => store.user);
   const handleSignOut = () => {
@@ -52,23 +53,31 @@ const Header = () => {
     setIsGPT(!isGPT);
   };
 
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between ">
       <img className="w-44" src={NETFLIX_LOGO} alt="logo" />
       {user && (
         <div className="flex m-2 gap-2 items-center">
-          <select className="p-2 bg-gray-900 text-white">
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <option key={lang.identifier} value={lang.identifier}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
+          {isGPT && (
+            <select
+              className="p-2 bg-gray-900 text-white"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             className="py-2 px-4 my-2 bg-red-700 m-2 text-white rounded-sm"
             onClick={handleGptSearch}
           >
-            {isGPT ? "Home" : "GPT Search"}
+            {isGPT ? "Homepage" : "GPT Search"}
           </button>
           <img className="w-10 h-10" src={SMILE_LOGO} alt="userIcon" />
           <button onClick={handleSignOut} className="text-white font-bold">
